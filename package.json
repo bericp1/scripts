@@ -1,0 +1,6 @@
+{
+  "name": "bericp1-scripts",
+  "dependencies": {
+    "colors": "^1.1.2"
+  }
+}
