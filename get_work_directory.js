@@ -20,7 +20,8 @@ if (process.argv.length < 3) {
 } else {
   const target = process.argv[2]
   const work = path.join(process.env.HOME, 'work')
-  const possible =
+  const carimus_dir = path.join(work, 'carimus')
+  let possible =
     [
       `everest/${target}`,
       `carimus/${target}`,
@@ -30,6 +31,12 @@ if (process.argv.length < 3) {
       `.old/goodbookey/${target}`,
       `${target}`
     ]
+
+  possible = possible.concat(
+    fs.readdirSync(carimus_dir)
+      .filter((file) => fs.statSync(path.join(carimus_dir, file)).isDirectory())
+      .map((projdir) => `carimus/${projdir}/${target}`)
+  )
 
   for (let dir of possible) {
     dir = path.join(work, dir)
