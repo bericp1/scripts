@@ -23,6 +23,8 @@ if (process.argv.length < 3) {
   const carimus_dir = path.join(work, 'carimus')
   let possible =
     [
+      `nursefly/nursefly-${target}`,
+      `nursefly/${target}`,
       `everest/${target}`,
       `carimus/${target}`,
       `goodbookey/${target}`,
